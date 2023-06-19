@@ -1,0 +1,70 @@
+nav {
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo {
+  font-size: 2.2rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+nav .links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  list-style: none;
+  text-transform: capitalize;
+}
+nav .links .link {
+  font-weight: 500;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+nav .nav-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+nav .nav-fields form {
+  display: flex;
+  height: 4rem;
+  padding: 0 1rem;
+  background-color: var(--light-white);
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--vlight-font);
+  font-size: 2.2rem;
+  /* border: 1px solid var(--vlight-font); */
+}
+nav .nav-fields form input {
+  height: -webkit-fill-available;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-weight: 500;
+  color: var(--light-font);
+}
+nav .nav-fields .cart-Btn {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: var(--light-font);
+  transition: 300ms all;
+}
+nav .nav-fields .cart-Btn:hover {
+  border: 2px solid var(--vlight-font);
+}

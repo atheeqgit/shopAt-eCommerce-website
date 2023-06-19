@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
 
 :root {
-  --primary-background: #141216;
-  --secondary-background: #1d1b1f;
-  --white-color: #ffffff;
-  --primary-font: #dbd9dd;
-  --secondary-font: #86848b;
-  --special-color: #a590db;
+  --white: #ffffff;
+  --light-white: #f2f3f7;
+  --vlight-white: #707781;
+  --dark-font: #1d242d;
+  --light-font: #1d242d;
+  --vlight-font: #b8bec5;
 }
 
 * {
@@ -23,13 +23,20 @@ html {
 }
 body {
   font-size: 1.8rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .app {
-  /* min-height: 100vh; */
-  /* width: 100vw; */
-  background-color: var(--primary-background);
+  min-height: 100vh;
+
   overflow-x: hidden;
-  color: white;
+  color: var(--dark-font);
+}
+
+.title {
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: left;
 }

@@ -1,0 +1,83 @@
+.banner-div {
+  width: 92%;
+}
+.banner {
+  display: block;
+  margin: auto;
+  border-radius: 1.5rem;
+  height: 60vh;
+  width: 100%;
+  background: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner .overlay {
+  position: fixed;
+  display: flex;
+  border-radius: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  background-color: rgb(0 0 0 / 42%);
+  padding: 1rem 2rem;
+  z-index: 2;
+  gap: 2rem;
+}
+.banner .overlay h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--light-white);
+}
+.banner .overlay button {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-weight: 600;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.banner .overlay button:hover {
+  background-color: var(--dark-font);
+  color: white;
+}
+.react-multi-carousel-dot-list {
+  transform: translateY(-20px);
+}
+.brands-div {
+  width: 100%;
+
+  margin: 2rem 0;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.brands {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  gap: 2rem;
+}
+.brang-img {
+  width: 10rem;
+}
+.brang-img img {
+  width: 100%;
+}

@@ -1,26 +1,43 @@
 import React from "react";
 import "./picks.css";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const Picks = () => {
   const picksData = [
-    "picksmen.jpeg",
-    "pickswomen2.jpeg",
-    "picksmobile2.jpeg",
-    "picksjwellery.jpeg",
+    {
+      title: "men",
+      src: "picksmen.jpeg",
+    },
+    {
+      title: "women",
+      src: "pickswomen2.png",
+    },
+    {
+      title: "Mobile",
+      src: "picksmobile2.jpeg",
+    },
+    {
+      title: "jwellery",
+      src: "picksjwellery.jpeg",
+    },
   ];
   return (
     <div className="picks-div">
       <div className="title">picks for you</div>
       <div className="picks">
-        {picksData.forEach((src) => {
+        {picksData.map((data) => {
           return (
             <div
               className="pick"
               style={{
-                backgroundImage: `url(../../../../public/${src})`,
+                backgroundImage: `url(/public/${data.src})`,
               }}
             >
-              <div className="overlay">picks</div>
+              <div className="overlay">
+                <button>
+                  shop {data.title} <BsArrowRightShort size={30} />
+                </button>
+              </div>
             </div>
           );
         })}

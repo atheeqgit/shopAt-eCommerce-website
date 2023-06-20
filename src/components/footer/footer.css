@@ -1,0 +1,13 @@
+footer {
+  width: 100%;
+}
+footer .cpy-rights {
+  width: 100%;
+  padding: 1.5rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  background-color: #1d242d;
+  color: var(--vlight-font);
+}

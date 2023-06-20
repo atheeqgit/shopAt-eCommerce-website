@@ -1,6 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { Navbar, Home } from "./components/index";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar, Home, Footer, Shop } from "./components/index";
 import "./App.css";
 
 function App() {
@@ -8,8 +8,15 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
-      <Home />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="*" element={<h1>not available</h1>} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

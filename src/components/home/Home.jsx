@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner, Picks } from "../sections";
+import { Banner, Picks, Featured } from "../sections";
 import "./home.css";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
     <div className="home">
       <Banner />
       <Picks />
+      <Featured />
     </div>
   );
 };

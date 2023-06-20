@@ -1,7 +1,14 @@
 import React from "react";
+import "./footer.css";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer>
+      <p className="cpy-rights">
+        copyrights goes to seyedatheeq , design inspired by Naufal hafiizh
+      </p>
+    </footer>
+  );
 };
 
 export default Footer;

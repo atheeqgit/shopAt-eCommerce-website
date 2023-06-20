@@ -55,12 +55,14 @@
   background-color: var(--dark-font);
   color: white;
 }
-.react-multi-carousel-dot-list {
+.banner-div .react-multi-carousel-dot-list {
   transform: translateY(-20px);
+}
+.banner-div .react-multi-carousel-list {
+  border-radius: 1.5rem;
 }
 .brands-div {
   width: 100%;
-
   margin: 2rem 0;
   margin-top: 4rem;
   display: flex;
@@ -72,7 +74,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-
   gap: 2rem;
 }
 .brang-img {

@@ -37,7 +37,7 @@ const bannerData = [
   {
     title:
       "Unlock Endless Possibilities: Dress to Inspire, Create and Captivate",
-    imgPath: "banner1.jpg",
+    imgPath: "banner9.jpg",
   },
   {
     title:
@@ -78,7 +78,7 @@ const Banner = () => {
                 key={index}
                 className="banner"
                 style={{
-                  backgroundImage: `url(../../../../public/${data.imgPath})`,
+                  backgroundImage: `url(/public/${data.imgPath})`,
                 }}
               >
                 <div className="overlay">

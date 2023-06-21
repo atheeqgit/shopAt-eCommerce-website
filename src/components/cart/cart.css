@@ -1,0 +1,110 @@
+.cart {
+  position: absolute;
+  right: -100%;
+  top: 12vh;
+  height: 88vh;
+  background-color: white;
+  padding: 1rem 2rem;
+  width: 35%;
+  overflow: scroll;
+  transition: 300ms ease;
+}
+.active {
+  right: 0;
+}
+.cart h1 {
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.cart .cart-full {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.delete {
+  cursor: pointer;
+}
+.cart .cart-items {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.cart .cart-items .cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: white;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--vlight-font);
+}
+.cart .cart-items .cart-item .img-cont {
+  border: 2px solid var(--vlight-font);
+  width: 10rem;
+  border-radius: 0.8rem;
+  height: 100%;
+}
+.cart .cart-items .cart-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+}
+.cart .cart-items .cart-item h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  text-transform: capitalize;
+  color: var(--dark-font);
+}
+.cart .cart-items .cart-item p {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--vlight-font);
+}
+
+.cart-total h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.cart-total h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.cart button {
+  margin: auto;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-weight: 600;
+  background-color: rgb(39, 39, 39);
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: rgb(219, 219, 219);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.cart button:active {
+  transform: scale(0.95);
+}
+.cart button:hover {
+  background-color: white;
+  color: var(--dark-font);
+}

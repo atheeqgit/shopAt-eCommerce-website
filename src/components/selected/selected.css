@@ -1,0 +1,83 @@
+.selected-product {
+  margin: 1rem 4rem;
+}
+.selected {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem 4rem;
+}
+.selected .selected-left {
+  width: 50%;
+}
+.selected .selected-left img {
+  width: 80%;
+  display: block;
+  margin: auto;
+  border-radius: 1.5rem;
+  border: 2px solid var(--dark-font);
+}
+.selected .selected-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.selected .selected-right h1 {
+  font-size: 3.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+.selected .selected-right p {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+.selected .selected-right .rating {
+  font-size: 2.1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+.selected .selected-right h2 {
+  text-transform: capitalize;
+  padding-bottom: 1rem;
+}
+.selected .selected-right .other-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.selected .selected-right .calc-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selected .selected-right button {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-weight: 600;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.selected .selected-right button:active {
+  transform: scale(0.95);
+}
+.selected .selected-right button:hover {
+  background-color: var(--dark-font);
+  color: white;
+}

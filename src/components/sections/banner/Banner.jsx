@@ -1,9 +1,10 @@
 import React from "react";
 import "./banner.css";
-import banner1 from "/banner1.jpg";
+import { Outlet, Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BsArrowRightShort } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -61,6 +62,8 @@ const bannerData = [
 ];
 
 const Banner = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="banner-div">
@@ -83,8 +86,8 @@ const Banner = () => {
               >
                 <div className="overlay">
                   <h1 className="banner-title">{data.title}</h1>
-                  <button>
-                    shop <BsArrowRightShort size={25} />
+                  <button onClick={() => navigate("/shop")}>
+                    Shop <BsArrowRightShort size={25} />
                   </button>
                 </div>
               </div>
@@ -98,7 +101,7 @@ const Banner = () => {
           {brandData.map((data) => {
             return (
               <div className="brang-img">
-                <img src={`../../../../public/${data}`} />
+                <img src={`/${data}`} />
               </div>
             );
           })}

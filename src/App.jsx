@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, Home, Footer, Shop } from "./components/index";
+import { Navbar, Home, Footer, Shop, Selected } from "./components/index";
 import "./App.css";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/product" element={<Selected />} />
           <Route path="*" element={<h1>not available</h1>} />
         </Routes>
         <Footer />

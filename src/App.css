@@ -28,7 +28,7 @@ body {
 
 .app {
   min-height: 100vh;
-
+  margin-top: 8rem;
   overflow-x: hidden;
   color: var(--dark-font);
 }
@@ -39,4 +39,7 @@ body {
   font-weight: 700;
   margin-bottom: 2rem;
   text-align: left;
+}
+.react-multiple-carousel__arrow {
+  z-index: 99;
 }

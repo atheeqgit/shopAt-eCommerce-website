@@ -51,6 +51,11 @@
   gap: 0.5rem;
   cursor: pointer;
 }
+.banner .overlay a {
+  /* background-color: var(--dark-font); */
+  color: black;
+  text-decoration: none;
+}
 .banner .overlay button:hover {
   background-color: var(--dark-font);
   color: white;

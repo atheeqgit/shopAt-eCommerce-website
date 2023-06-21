@@ -4,35 +4,41 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Product } from "../../index";
 
 const featuredData = [
   {
+    id: 21,
     title: "brown shirt",
-    src: "picksmen.jpeg",
+    thumbnail: "/public/picksmen.jpeg",
     price: "$100",
   },
 
   {
+    id: 22,
     title: "women's lehenga",
-    src: "pickswomen2.png",
+    thumbnail: "/public/pickswomen2.png",
     price: "$100",
   },
 
   {
+    id: 23,
     title: "iphone-12pro max",
-    src: "picksmobile2.jpeg",
+    thumbnail: "/public/picksmobile2.jpeg",
     price: "$100",
   },
 
   {
+    id: 24,
     title: "gold jimmiky",
-    src: "picksjwellery.jpeg",
+    thumbnail: "/public/picksjwellery.jpeg",
     price: "$100",
   },
 
   {
+    id: 25,
     title: "mens-shirt",
-    src: "picksmen.jpeg",
+    thumbnail: "/public/picksmen.jpeg",
     price: "$100",
   },
 ];
@@ -71,29 +77,7 @@ const Featured = () => {
         // removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
       >
         {featuredData.map((data, index) => {
-          console.log("hello");
-          return (
-            <div className="product">
-              <div
-                className="product-img"
-                style={{ backgroundImage: `url(/public/${data.src})` }}
-              ></div>
-              <div className="product-details">
-                <div>
-                  <p className="product-name">{data.title}</p>
-                  <h2 className="price">{data.price}$</h2>
-                </div>
-                <div>
-                  <div className="cart-Btn">
-                    <HiOutlineShoppingCart size={25} />
-                  </div>
-                  <div className="like-btn">
-                    <AiOutlineHeart size={25} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
+          return <Product key={index} data={data} />;
         })}
       </Carousel>
     </div>

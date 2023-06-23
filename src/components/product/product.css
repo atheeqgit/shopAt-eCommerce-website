@@ -56,3 +56,13 @@
 .product .product-details div div {
   cursor: pointer;
 }
+@media screen and (max-width: 850px) {
+  .product-img {
+    height: 25rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .product-img {
+    height: 20rem;
+  }
+}

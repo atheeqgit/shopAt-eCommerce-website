@@ -16,12 +16,12 @@ const Featured = () => {
   let skip;
 
   function setSkip() {
-    skip = Math.floor(Math.random() * 95);
+    skip = Math.floor(Math.random() * 90);
   }
 
   async function fetchfeaturedData() {
     Axios.get(
-      `https://dummyjson.com/products?limit=5&skip=${skip}&select=title,price,thumbnail`
+      `https://dummyjson.com/products?limit=10&skip=${skip}&select=title,price,thumbnail`
     ).then((response) => {
       if (response.status === 200) {
         setFeaturedData(response.data.products);
@@ -38,7 +38,6 @@ const Featured = () => {
     Axios.get(`https://dummyjson.com/products/category/mens-shirts`).then(
       (response) => {
         if (response.status === 200) {
-          console.log(response.data.products);
           setFeaturedMen(response.data.products);
         } else console.log(response);
       }
@@ -54,7 +53,7 @@ const Featured = () => {
 
   return (
     <>
-      <div className="featured-div">
+      <div className="featured-div" id="featured">
         <div className="title">featured products</div>
         {featuredData ? (
           <Carousel responsive={featuredResponsive}>

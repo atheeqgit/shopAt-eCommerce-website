@@ -34,7 +34,6 @@ const Selected = () => {
 
   async function singleItemData() {
     Axios.get(`https://dummyjson.com/products/${itemId}`).then((response) => {
-      console.log(response);
       if (response.status === 200) {
         setSelectedData(response.data);
       } else console.log(response);
@@ -58,9 +57,9 @@ const Selected = () => {
               autoPlaySpeed={3000}
               // removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
             >
-              {selectedData.images.map((src) => {
+              {selectedData.images.map((src, index) => {
                 return (
-                  <div className="img-div">
+                  <div className="img-div" key={index}>
                     <img src={src} />
                   </div>
                 );

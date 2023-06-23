@@ -3,7 +3,7 @@ import "./cart.css";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-const Cart = ({ cartopen }) => {
+const Cart = ({ cartopen, setCartopen }) => {
   const navigate = useNavigate();
 
   const data = [
@@ -59,7 +59,10 @@ const Cart = ({ cartopen }) => {
             <div
               key={index}
               className="cart-full"
-              onClick={() => navigate(`/shop/product/${data.id}`)}
+              onClick={() => {
+                navigate(`/product/${data.id}`);
+                setCartopen(!cartopen);
+              }}
             >
               <div className="cart-item">
                 <div className="img-cont">

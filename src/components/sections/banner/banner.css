@@ -87,3 +87,28 @@
 .brang-img img {
   width: 100%;
 }
+@media screen and (max-width: 840px) {
+  .banner {
+    height: 50vh;
+  }
+  .banner .overlay h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  .banner .overlay button {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .banner {
+    height: 30vh;
+  }
+  .banner .overlay h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  .banner .overlay button {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+}

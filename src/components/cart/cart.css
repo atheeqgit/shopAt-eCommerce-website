@@ -108,3 +108,13 @@
   background-color: white;
   color: var(--dark-font);
 }
+@media screen and (max-width: 900px) {
+  .cart {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cart {
+    width: 75%;
+  }
+}

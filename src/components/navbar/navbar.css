@@ -69,6 +69,9 @@ nav .nav-fields form input {
   font-weight: 500;
   color: var(--light-font);
 }
+nav .menu-icons {
+  display: none;
+}
 nav .nav-fields .cart-Btn {
   height: 4rem;
   width: 4rem;
@@ -83,4 +86,41 @@ nav .nav-fields .cart-Btn {
 }
 nav .nav-fields .cart-Btn:hover {
   border: 2px solid var(--vlight-font);
+}
+@media screen and (max-width: 800px) {
+  nav .menu-icons {
+    display: flex;
+  }
+  nav .links {
+    position: absolute;
+    right: -100%;
+    top: 12vh;
+    height: fit-content;
+    background-color: white;
+    padding: 5rem 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5rem 0;
+    width: 40%;
+    overflow: scroll;
+    transition: 300ms ease;
+  }
+  nav .show-nav {
+    right: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  nav {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav .menu-icons {
+    display: flex;
+  }
+  nav .links {
+    width: 75%;
+    height: 90vh;
+  }
 }

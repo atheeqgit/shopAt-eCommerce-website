@@ -10,10 +10,7 @@ const Product = ({ data }) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="product"
-      onClick={() => navigate(`/shop/product/${data.id}`)}
-    >
+    <div className="product" onClick={() => navigate(`/product/${data.id}`)}>
       <div
         className="product-img"
         style={{ backgroundImage: `url(${data.thumbnail})` }}

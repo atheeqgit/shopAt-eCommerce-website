@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/product" element={<Selected />} />
+          <Route path="/product/:id" element={<Selected />} />
           <Route path="*" element={<h1>not available</h1>} />
         </Routes>
         <Footer />

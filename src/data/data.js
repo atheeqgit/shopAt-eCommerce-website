@@ -94,3 +94,137 @@ export const dummyData = {
   skip: 0,
   limit: 5,
 };
+
+export const bannerData = [
+  {
+    title:
+      "Unlock Endless Possibilities: Dress to Inspire, Create and Captivate",
+    imgPath: "banner9.jpg",
+  },
+  {
+    title:
+      "Technology is the only thing that has an ability to connect you to the world",
+    imgPath: "banner6.jpg",
+  },
+  {
+    title:
+      "Curated Fashion Experiences: Unveiling the Perfect Blend of Elegance and Modernity",
+    imgPath: "banner5.jpg",
+  },
+  {
+    title: "Discover Your Signature Style and Make a Lasting Impression.",
+    imgPath: "banner3.jpg",
+  },
+  {
+    title:
+      "Fashion Forward, Sustainable Choices: Dress Responsibly, Leave a Positive Impact",
+    imgPath: "banner4.jpg",
+  },
+];
+
+export const brandData = [
+  "brand1.png",
+  "brand2.jpg",
+  "brand3.jpg",
+  "brand4.png",
+  "brand5.png",
+  "brand6.png",
+];
+
+export const picksData = [
+  {
+    title: "men",
+    src: "picksmen.jpeg",
+  },
+  {
+    title: "women",
+    src: "pickswomen2.png",
+  },
+  {
+    title: "Mobile",
+    src: "picksmobile2.jpeg",
+  },
+  {
+    title: "jwellery",
+    src: "picksjwellery.jpeg",
+  },
+];
+
+export const featuredData = [
+  {
+    id: 21,
+    title: "brown shirt",
+    thumbnail: "/public/picksmen.jpeg",
+    price: "$100",
+  },
+
+  {
+    id: 22,
+    title: "women's lehenga",
+    thumbnail: "/public/pickswomen2.png",
+    price: "$100",
+  },
+
+  {
+    id: 23,
+    title: "iphone-12pro max",
+    thumbnail: "/public/picksmobile2.jpeg",
+    price: "$100",
+  },
+
+  {
+    id: 24,
+    title: "gold jimmiky",
+    thumbnail: "/public/picksjwellery.jpeg",
+    price: "$100",
+  },
+
+  {
+    id: 25,
+    title: "mens-shirt",
+    thumbnail: "/public/picksmen.jpeg",
+    price: "$100",
+  },
+];
+
+// reponsive ----------------------------------------------------
+
+export const BannerResponsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+export const featuredResponsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 2,
+  },
+};

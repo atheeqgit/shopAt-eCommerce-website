@@ -1,86 +1,96 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import "./featured.css";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Product } from "../../index";
-
-const featuredData = [
-  {
-    id: 21,
-    title: "brown shirt",
-    thumbnail: "/public/picksmen.jpeg",
-    price: "$100",
-  },
-
-  {
-    id: 22,
-    title: "women's lehenga",
-    thumbnail: "/public/pickswomen2.png",
-    price: "$100",
-  },
-
-  {
-    id: 23,
-    title: "iphone-12pro max",
-    thumbnail: "/public/picksmobile2.jpeg",
-    price: "$100",
-  },
-
-  {
-    id: 24,
-    title: "gold jimmiky",
-    thumbnail: "/public/picksjwellery.jpeg",
-    price: "$100",
-  },
-
-  {
-    id: 25,
-    title: "mens-shirt",
-    thumbnail: "/public/picksmen.jpeg",
-    price: "$100",
-  },
-];
-
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 2,
-  },
-};
+import { featuredResponsive } from "../../../data/data";
 
 const Featured = () => {
-  return (
-    <div className="featured-div">
-      <div className="title">featured products</div>
+  const [featuredData, setFeaturedData] = useState();
+  const [featuredWomen, setFeaturedWomen] = useState();
+  const [featuredMen, setFeaturedMen] = useState();
 
-      <Carousel
-        responsive={responsive}
-        // showDots={true}
-        // infinite={true}
-        // autoPlay={true}
-        // autoPlaySpeed={3000}
-        // removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-      >
-        {featuredData.map((data, index) => {
-          return <Product key={index} data={data} />;
-        })}
-      </Carousel>
-    </div>
+  let skip;
+
+  function setSkip() {
+    skip = Math.floor(Math.random() * 95);
+  }
+
+  async function fetchfeaturedData() {
+    Axios.get(
+      `https://dummyjson.com/products?limit=5&skip=${skip}&select=title,price,thumbnail`
+    ).then((response) => {
+      if (response.status === 200) {
+        setFeaturedData(response.data.products);
+      } else console.log(response);
+    });
+
+    Axios.get(`https://dummyjson.com/products/category/womens-dresses`).then(
+      (response) => {
+        if (response.status === 200) {
+          setFeaturedWomen(response.data.products);
+        } else console.log(response);
+      }
+    );
+    Axios.get(`https://dummyjson.com/products/category/mens-shirts`).then(
+      (response) => {
+        if (response.status === 200) {
+          console.log(response.data.products);
+          setFeaturedMen(response.data.products);
+        } else console.log(response);
+      }
+    );
+  }
+
+  useEffect(() => {
+    setSkip();
+    fetchfeaturedData();
+  }, []);
+
+  useEffect(() => {}, []);
+
+  return (
+    <>
+      <div className="featured-div">
+        <div className="title">featured products</div>
+        {featuredData ? (
+          <Carousel responsive={featuredResponsive}>
+            {featuredData.map((data, index) => {
+              return <Product key={index} data={data} />;
+            })}
+          </Carousel>
+        ) : (
+          "loading...."
+        )}
+      </div>
+      <div className="featured-div">
+        <div className="title">women's dresses</div>
+        {featuredWomen ? (
+          <Carousel responsive={featuredResponsive}>
+            {featuredWomen.map((data, index) => {
+              return <Product key={index} data={data} />;
+            })}
+          </Carousel>
+        ) : (
+          "loading...."
+        )}
+      </div>
+      <div className="featured-div">
+        <div className="title">men's Shirts</div>
+        {featuredMen ? (
+          <Carousel responsive={featuredResponsive}>
+            {featuredMen.map((data, index) => {
+              return <Product key={index} data={data} />;
+            })}
+          </Carousel>
+        ) : (
+          "loading...."
+        )}
+      </div>
+    </>
   );
 };
 

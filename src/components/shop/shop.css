@@ -15,6 +15,19 @@
   overflow-y: scroll;
 }
 .shop .shop-main .shop-details {
+  display: flex;
+  border-radius: 1rem;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: var(--light-white);
+  padding: 1rem;
+}
+.shop .shop-main .shop-detailsR {
+  text-align: right;
   font-size: 1.6rem;
   text-transform: capitalize;
   font-weight: 500;
@@ -56,4 +69,76 @@
 .shop .shop-main .shop-right .shop-grid .product-img {
   height: 20rem;
   margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .shop .shop-main .shop-right .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 900px) {
+  .shop .shop-main {
+    flex-direction: column;
+  }
+  .shop .shop-main .shop-details {
+    text-align: right;
+  }
+  .shop .shop-main .shop-left .shop-details {
+    text-align: left;
+  }
+  .shop .shop-main .shop-left {
+    position: absolute;
+    width: 30%;
+    top: 8rem;
+    transition: 300ms;
+    height: 4rem;
+    overflow-y: scroll;
+    background-color: white;
+  }
+  .shop .shop-main .down {
+    height: 50vh;
+  }
+
+  .shop .shop-main .shop-right {
+    width: 100%;
+  }
+  .shop .shop-main .shop-right .shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .shop .shop-main .shop-left {
+    top: 10rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .shop .shop-main .shop-left {
+    width: 45%;
+    transition: 300ms;
+  }
+  .shop .shop-main .shop-right .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 620px) {
+  .shop .shop-main .shop-right .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .shop .shop-main .shop-left {
+    width: 50%;
+    transition: 300ms;
+  }
+}
+@media screen and (max-width: 840px) {
+  .shop {
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .shop {
+    padding: 1rem 1.5rem;
+  }
 }

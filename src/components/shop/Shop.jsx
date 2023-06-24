@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./shop.css";
 import { Product } from "../index";
-import { RxCaretRight } from "react-icons/rx";
+import { RxCaretRight, RxCaretDown, RxCaretUp } from "react-icons/rx";
 
 const Shop = () => {
   const [shopData, setShopData] = useState();
   const [categories, setCategories] = useState();
   const [category, setCategory] = useState();
-  const [cat, setCat] = useState("All");
+  const [showCats, setShowCats] = useState(false);
+  const [cat, setCat] = useState("All Products");
+
+  const handleCats = () => {
+    if (window.innerWidth < 900) {
+      setShowCats(!showCats);
+    }
+  };
 
   async function FetchcategoryData(value) {
     setCat(value);
@@ -57,12 +64,21 @@ const Shop = () => {
   return (
     <div className="shop">
       <div className="shop-main">
-        <ul className="shop-left">
-          <p className="shop-details">catogories</p>
+        <ul className={showCats ? `shop-left down` : "shop-left"}>
+          <p
+            className="shop-details"
+            onClick={() => {
+              handleCats();
+            }}
+          >
+            catogories{" "}
+            {showCats ? <RxCaretUp size={25} /> : <RxCaretDown size={25} />}
+          </p>
           <li
             onClick={(e) => {
               e.preventDefault();
               FetchcategoryData(e.target.innerText);
+              handleCats();
             }}
           >
             <a href="">All</a>
@@ -76,6 +92,7 @@ const Shop = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       FetchcategoryData(e.target.innerText);
+                      handleCats();
                     }}
                   >
                     <a href="">{data}</a>
@@ -86,7 +103,7 @@ const Shop = () => {
             : "loading....."}
         </ul>
         <div className="shop-right">
-          <p className="shop-details">
+          <p className="shop-detailsR ">
             {cat ? cat : "All Products"}, {shopData ? shopData.length : ""}{" "}
             results
           </p>

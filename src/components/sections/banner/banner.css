@@ -76,7 +76,7 @@
 
 .brands {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-evenly;
   gap: 2rem;
@@ -102,6 +102,9 @@
 @media screen and (max-width: 640px) {
   .banner {
     height: 30vh;
+  }
+  .banner-div {
+    width: 100%;
   }
   .banner .overlay h1 {
     font-size: 1.8rem;

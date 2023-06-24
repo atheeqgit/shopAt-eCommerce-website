@@ -216,11 +216,11 @@ export const featuredResponsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 800 },
     items: 4,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 600 },
+    breakpoint: { max: 800, min: 600 },
     items: 3,
   },
   mobile: {

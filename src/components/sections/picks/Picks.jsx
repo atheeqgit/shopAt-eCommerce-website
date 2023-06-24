@@ -14,7 +14,7 @@ const Picks = () => {
               key={index}
               className="pick"
               style={{
-                backgroundImage: `url(/public/${data.src})`,
+                backgroundImage: `url(/${data.src})`,
               }}
             >
               <div className="overlay">

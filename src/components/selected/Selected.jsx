@@ -6,8 +6,13 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Featured } from "../sections/index";
+import { useContext } from "react";
+import Context from "../../context.js";
 
 const Selected = () => {
+  const { addToCart } = useContext(Context);
+  let quantity = 1;
+
   const [selectedData, setSelectedData] = useState();
   const params = useParams();
   const itemId = params.id;
@@ -78,8 +83,26 @@ const Selected = () => {
               <div>someting</div>
             </div>
             <div className="calc-div">
-              <div>- 1 +</div>
-              <button>
+              <div>
+                qunatity:
+                <select
+                  name="choice"
+                  onChange={(e) => {
+                    quantity = e.target.value;
+                  }}
+                >
+                  <option value={1} defaultValue>
+                    1
+                  </option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                </select>
+              </div>
+              <button
+                onClick={() => {
+                  addToCart(selectedData, quantity);
+                }}
+              >
                 add to cart <HiOutlineShoppingCart size={30} />
               </button>
             </div>

@@ -23,11 +23,7 @@
   flex-direction: column;
   gap: 2rem;
 }
-.selected .selected-right h1 {
-  font-size: 3.5rem;
-  text-transform: capitalize;
-  font-weight: 600;
-}
+
 .selected .selected-right p {
   font-size: 1.8rem;
   text-transform: capitalize;
@@ -94,6 +90,9 @@
   .selected .selected-right {
     width: 100%;
   }
+  .selected .selected-right h1 {
+    font-size: 3.2rem;
+  }
 }
 @media screen and (max-width: 600px) {
   .selected {
@@ -107,6 +106,12 @@
   }
   .selected .selected-right {
     width: 100%;
+    gap: 1rem;
+  }
+  .selected .selected-right h1 {
+    font-size: 2.8rem;
+    text-transform: capitalize;
+    font-weight: 600;
   }
 }
 @media screen and (max-width: 840px) {

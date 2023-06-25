@@ -73,6 +73,7 @@ nav .menu-icons {
   display: none;
 }
 nav .nav-fields .cart-Btn {
+  position: relative;
   height: 4rem;
   width: 4rem;
   display: flex;
@@ -87,6 +88,83 @@ nav .nav-fields .cart-Btn {
 nav .nav-fields .cart-Btn:hover {
   border: 2px solid var(--vlight-font);
 }
+
+.cart-num {
+  top: -1rem;
+  right: -1rem;
+  font-size: 1.2rem;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  background-color: rgb(255, 100, 100);
+}
+
+.search-div {
+  width: 100%;
+  left: 0;
+  max-height: 80vh;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  position: absolute;
+  background-color: white;
+  color: black;
+  top: 8rem;
+  padding: 1rem 2rem;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: white;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--vlight-font);
+}
+.search-cont {
+  border: 2px solid var(--vlight-font);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 0.8rem;
+  height: 10rem;
+}
+.search-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+}
+.search-item h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  text-transform: capitalize;
+  color: var(--dark-font);
+}
+.search-item h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-transform: capitalize;
+  color: var(--dark-font);
+}
+.search-item p {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--vlight-font);
+}
+
 @media screen and (max-width: 800px) {
   nav .menu-icons {
     display: flex;
@@ -113,6 +191,9 @@ nav .nav-fields .cart-Btn:hover {
 @media screen and (max-width: 600px) {
   nav {
     flex-direction: column;
+  }
+  .search-div {
+    grid-template-columns: repeat(3, 1fr);
   }
   nav {
     width: 100%;

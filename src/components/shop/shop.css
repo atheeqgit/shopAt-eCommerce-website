@@ -64,7 +64,10 @@
 .shop .shop-main .shop-right .shop-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
+  gap: 2rem;
+}
+.shop .shop-main .shop-right .shop-grid .product {
+  margin: 2rem 0;
 }
 .shop .shop-main .shop-right .shop-grid .product-img {
   height: 20rem;
@@ -88,14 +91,16 @@
   }
   .shop .shop-main .shop-left {
     position: absolute;
-    width: 30%;
+    overflow-y: hidden;
     top: 8rem;
     transition: 300ms;
-    height: 4rem;
-    overflow-y: scroll;
+    height: 5rem;
+    min-width: 18rem;
     background-color: white;
   }
   .shop .shop-main .down {
+    overflow-y: scroll;
+    width: 30%;
     height: 50vh;
   }
 
@@ -103,6 +108,7 @@
     width: 100%;
   }
   .shop .shop-main .shop-right .shop-grid {
+    padding-top: 1rem;
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -113,8 +119,10 @@
 }
 @media screen and (max-width: 800px) {
   .shop .shop-main .shop-left {
-    width: 45%;
     transition: 300ms;
+  }
+  .shop .shop-main .down {
+    width: 45%;
   }
   .shop .shop-main .shop-right .shop-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -126,9 +134,8 @@
   }
 }
 @media screen and (max-width: 600px) {
-  .shop .shop-main .shop-left {
+  .shop .shop-main .down {
     width: 50%;
-    transition: 300ms;
   }
 }
 @media screen and (max-width: 840px) {

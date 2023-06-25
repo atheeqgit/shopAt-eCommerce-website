@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import Axios from "axios";
 import {
   RiMenu3Line,
   RiCloseLine,
@@ -10,11 +12,17 @@ import { BiSearch } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { Cart } from "../index";
 import "./navbar.css";
+import { useContext } from "react";
+import Context from "../../context.js";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const { cartData } = useContext(Context);
   const [scrolled, setScrolled] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [input, setInput] = useState("");
+  const [searchData, setSearchData] = useState();
 
   const handleClick = () => {
     if (window.innerWidth < 800) {
@@ -31,6 +39,24 @@ const Navbar = () => {
       }
     };
   }, []);
+
+  async function fetchSearchdata() {
+    Axios.get(`  https://dummyjson.com/products/search?q=${input}`).then(
+      (response) => {
+        if (response.status === 200) {
+          setSearchData(response.data.products);
+        } else console.log(response);
+      }
+    );
+  }
+  useEffect(() => {
+    if (input != "") {
+      fetchSearchdata();
+    } else {
+      setSearchData([]);
+    }
+  }, [input]);
+  const navigate = useNavigate();
 
   return (
     <nav className={scrolled ? "active" : ""}>
@@ -59,7 +85,13 @@ const Navbar = () => {
           }}
         >
           <BiSearch />
-          <input type="text" />
+          <input
+            value={input}
+            type="text"
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+          />
         </form>
         <div
           className="cart-Btn"
@@ -67,12 +99,47 @@ const Navbar = () => {
             setCartOpen(!cartOpen);
           }}
         >
+          {cartData.length > 0 ? (
+            <div className="cart-num">{cartData.length}</div>
+          ) : (
+            ""
+          )}
+
           <HiOutlineShoppingCart />
         </div>
         <div className="menu-icons" onClick={handleClick}>
           {toggleMenu ? <RiCloseLine /> : <RiMenu3Line />}
         </div>
       </div>
+      {input.length > 0 ? (
+        <div className="search-div">
+          {searchData.length > 0
+            ? searchData.map((data) => {
+                return (
+                  <div
+                    className="search-item"
+                    onClick={() => {
+                      navigate(`/product/${data.id}`);
+                      setInput("");
+                      setSearchData([]);
+                    }}
+                  >
+                    <div className="search-cont">
+                      <img src={data.thumbnail} />
+                    </div>
+                    <div className="search-details">
+                      <h2 className="search-name">{data.title}</h2>
+
+                      <h3>{data.price}$</h3>
+                    </div>
+                  </div>
+                );
+              })
+            : "the product is not available"}
+        </div>
+      ) : (
+        ""
+      )}
       <Cart cartopen={cartOpen} setCartopen={setCartOpen} />
     </nav>
   );

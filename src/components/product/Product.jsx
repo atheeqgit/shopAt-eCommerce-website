@@ -5,12 +5,25 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
+import { BsCheckLg } from "react-icons/bs";
+import { useContext } from "react";
+import Context from "../../context.js";
 
 const Product = ({ data }) => {
+  const { addToCart } = useContext(Context);
   const navigate = useNavigate();
 
   return (
-    <div className="product" onClick={() => navigate(`/product/${data.id}`)}>
+    <div
+      className="product"
+      onClick={(e) => {
+        if (e.target.parentElement.className !== "cart-Btn") {
+          navigate(`/product/${data.id}`);
+        } else {
+          addToCart(data);
+        }
+      }}
+    >
       <div
         className="product-img"
         style={{ backgroundImage: `url(${data.thumbnail})` }}

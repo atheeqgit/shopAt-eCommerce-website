@@ -10,7 +10,11 @@ const Cart = ({ cartopen, setCartopen }) => {
   //--
   const { cartData, deleteFromCart } = useContext(Context);
 
+  const { total, setTotal } = useState(0);
+
   const navigate = useNavigate();
+
+  useContext(() => {}, [cartData]);
 
   return (
     <div className={cartopen ? "cart active" : "cart"}>

@@ -47,7 +47,6 @@
   border: 1px solid var(--vlight-font);
 }
 .cart .cart-items .cart-item .img-cont {
-  border: 2px solid var(--vlight-font);
   width: 10rem;
   border-radius: 0.8rem;
   height: 100%;
@@ -67,7 +66,6 @@
 .cart .cart-items .cart-item p {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
-
   font-weight: 500;
   text-transform: capitalize;
   color: var(--vlight-font);
@@ -112,9 +110,17 @@
   .cart {
     width: 55%;
   }
+  .cart .cart-items .cart-item h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
 }
 @media screen and (max-width: 600px) {
   .cart {
     width: 75%;
+  }
+  .cart .cart-items .cart-item h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
   }
 }

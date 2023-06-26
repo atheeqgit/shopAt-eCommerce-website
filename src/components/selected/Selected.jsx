@@ -100,7 +100,7 @@ const Selected = () => {
               </div>
               <button
                 onClick={() => {
-                  addToCart(selectedData, quantity);
+                  addToCart(selectedData);
                 }}
               >
                 add to cart <HiOutlineShoppingCart size={30} />

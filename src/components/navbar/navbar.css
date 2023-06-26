@@ -132,7 +132,6 @@ nav .nav-fields .cart-Btn:hover {
   border: 1px solid var(--vlight-font);
 }
 .search-cont {
-  border: 2px solid var(--vlight-font);
   width: 10rem;
   height: 10rem;
   border-radius: 0.8rem;
@@ -186,6 +185,9 @@ nav .nav-fields .cart-Btn:hover {
   nav .show-nav {
     right: 0;
   }
+  .search-div {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -193,7 +195,7 @@ nav .nav-fields .cart-Btn:hover {
     flex-direction: column;
   }
   .search-div {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   nav {
     width: 100%;

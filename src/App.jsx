@@ -7,17 +7,32 @@ import Context from "./context.js";
 function App() {
   const [cartData, setCartData] = useState([]);
 
-  const addToCart = (data, quantity) => {
-    setCartData([
-      ...cartData,
-      {
-        id: data.id,
-        title: data.title,
-        quantity: quantity,
-        thumbnail: data.thumbnail,
-        price: data.price,
-      },
-    ]);
+  const addToCart = (data) => {
+    const isProductExists = cartData.find((item) => item.id === data.id);
+    console.log(isProductExists);
+    if (isProductExists) {
+      cartData.map((item) => {
+        if (item.id === data.id) {
+          setCartData([
+            {
+              ...item,
+              quantity: item.quantity + 1,
+            },
+          ]);
+        }
+      });
+    } else {
+      setCartData([
+        ...cartData,
+        {
+          id: data.id,
+          title: data.title,
+          quantity: 1,
+          thumbnail: data.thumbnail,
+          price: data.price,
+        },
+      ]);
+    }
   };
   const deleteFromCart = (data) => {
     setCartData(

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./cart.css";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -10,11 +10,17 @@ const Cart = ({ cartopen, setCartopen }) => {
   //--
   const { cartData, deleteFromCart } = useContext(Context);
 
-  const { total, setTotal } = useState(0);
+  const [total, setTotal] = useState(0);
 
   const navigate = useNavigate();
 
-  useContext(() => {}, [cartData]);
+  useEffect(() => {
+    setTotal(
+      cartData.reduce((prevValue, item) => {
+        return prevValue + item.price * item.quantity;
+      }, 0)
+    );
+  }, [cartData]);
 
   return (
     <div className={cartopen ? "cart active" : "cart"}>
@@ -26,9 +32,17 @@ const Cart = ({ cartopen, setCartopen }) => {
                 <div
                   key={index}
                   className="cart-full"
-                  onClick={() => {
-                    navigate(`/product/${data.id}`);
-                    setCartopen(!cartopen);
+                  onClick={(e) => {
+                    if (
+                      e.target.className == "delete" ||
+                      e.target.parentElement.className == "delete" ||
+                      e.target.parentElement.parentElement.className == "delete"
+                    ) {
+                      deleteFromCart(data);
+                    } else {
+                      navigate(`/product/${data.id}`);
+                      setCartopen(!cartopen);
+                    }
                   }}
                 >
                   <div className="cart-item">
@@ -41,12 +55,7 @@ const Cart = ({ cartopen, setCartopen }) => {
                       <h3>{data.price}$</h3>
                     </div>
                   </div>
-                  <div
-                    className="delete"
-                    onClick={() => {
-                      deleteFromCart(data);
-                    }}
-                  >
+                  <div className="delete">
                     <MdOutlineDeleteForever size={35} />
                   </div>
                 </div>
@@ -55,7 +64,7 @@ const Cart = ({ cartopen, setCartopen }) => {
           : "Your Cart is empty"}
       </div>
       <div className="cart-total">
-        <h2>total : 300$</h2>
+        <h2>total : {total}$</h2>
         <button>check out</button>
       </div>
     </div>

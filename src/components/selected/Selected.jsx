@@ -10,8 +10,15 @@ import { useContext } from "react";
 import Context from "../../context.js";
 
 const Selected = () => {
-  const { addToCart } = useContext(Context);
-  let quantity = 1;
+  const {
+    addToCart,
+    deleteFromCart,
+
+    cartData,
+    setCartData,
+  } = useContext(Context);
+  const [productExists, setProductExists] = useState();
+  const [quantity, setQuantity] = useState(1);
 
   const [selectedData, setSelectedData] = useState();
   const params = useParams();
@@ -46,8 +53,52 @@ const Selected = () => {
   }
   useEffect(() => {
     window.scrollTo(0, 0);
+
     singleItemData();
   }, [itemId]);
+
+  useEffect(() => {
+    handleE();
+  }, [quantity]);
+
+  function handleE() {
+    const cartProduct = cartData.find((item) => item.id === selectedData.id);
+    if (cartProduct) {
+      setProductExists(cartProduct);
+    }
+  }
+
+  function handleAdd() {
+    if (productExists) {
+      setQuantity(() => {
+        return Number(+productExists.quantity + 1);
+      });
+      addToCart(selectedData, setQuantity, quantity);
+    } else {
+      setQuantity(() => {
+        return Number(quantity + 1);
+      });
+    }
+  }
+
+  console.log(quantity);
+  function handleDel() {
+    if (productExists) {
+      if (quantity > 1) {
+        setQuantity(() => {
+          return Number(+productExists.quantity - 1);
+        });
+        addToCart(selectedData, setQuantity, quantity);
+      } else {
+        setProductExists(false);
+        deleteFromCart(selectedData);
+      }
+    } else {
+      setQuantity(() => {
+        return Number(quantity - 1);
+      });
+    }
+  }
 
   return (
     <div className="selected-product">
@@ -78,38 +129,44 @@ const Selected = () => {
               <p className="rating">Rating {selectedData.rating}</p>
             </div>
             <h2>${selectedData.price}</h2>
-            <div className="other-details">
-              <div>someting</div>
-              <div>someting</div>
-            </div>
+
             <div className="calc-div">
-              <div>
-                qunatity:
-                <select
-                  name="choice"
-                  onChange={(e) => {
-                    quantity = e.target.value;
+              <div className="qunatity-div">
+                <div
+                  className="symbol"
+                  onClick={() => {
+                    handleAdd();
                   }}
                 >
-                  <option value={1} defaultValue>
-                    1
-                  </option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                </select>
+                  +
+                </div>
+                <div className="h3">{quantity}</div>
+                <div
+                  className="symbol"
+                  onClick={() => {
+                    handleDel();
+                  }}
+                >
+                  -
+                </div>
               </div>
               <button
                 onClick={() => {
-                  addToCart(selectedData);
+                  if (productExists) {
+                    handleDel();
+                  } else {
+                    addToCart(selectedData, quantity);
+                  }
                 }}
               >
-                add to cart <HiOutlineShoppingCart size={30} />
+                {productExists ? "delete from cart " : "add to cart"}{" "}
+                <HiOutlineShoppingCart size={30} />
               </button>
             </div>
           </div>
         </div>
       ) : (
-        "losding...."
+        "loading...."
       )}
 
       <Featured />

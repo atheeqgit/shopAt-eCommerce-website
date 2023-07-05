@@ -27,6 +27,9 @@ const Navbar = () => {
   const handleClick = () => {
     if (window.innerWidth < 800) {
       setToggleMenu((toggleMenu) => !toggleMenu);
+      if (cartOpen) {
+        setCartOpen(!cartOpen);
+      }
     }
   };
 
@@ -97,6 +100,9 @@ const Navbar = () => {
           className="cart-Btn"
           onClick={() => {
             setCartOpen(!cartOpen);
+            if (toggleMenu) {
+              setToggleMenu(!toggleMenu);
+            }
           }}
         >
           {cartData.length > 0 ? (
@@ -113,29 +119,31 @@ const Navbar = () => {
       </div>
       {input.length > 0 ? (
         <div className="search-div">
-          {searchData.length > 0
-            ? searchData.map((data) => {
-                return (
-                  <div
-                    className="search-item"
-                    onClick={() => {
-                      navigate(`/product/${data.id}`);
-                      setInput("");
-                      setSearchData([]);
-                    }}
-                  >
-                    <div className="search-cont">
-                      <img src={data.thumbnail} />
-                    </div>
-                    <div className="search-details">
-                      <h2 className="search-name">{data.title}</h2>
-
-                      <h3>{data.price}$</h3>
-                    </div>
+          {searchData.length > 0 ? (
+            searchData.map((data) => {
+              return (
+                <div
+                  className="search-item"
+                  onClick={() => {
+                    navigate(`/product/${data.id}`);
+                    setInput("");
+                    setSearchData([]);
+                  }}
+                >
+                  <div className="search-cont">
+                    <img src={data.thumbnail} />
                   </div>
-                );
-              })
-            : "the product is not available"}
+                  <div className="search-details">
+                    <h2 className="search-name">{data.title}</h2>
+
+                    <h3>{data.price}$</h3>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <h3>The product is not available</h3>
+          )}
         </div>
       ) : (
         ""

@@ -25,6 +25,7 @@
 }
 .delete {
   cursor: pointer;
+  height: -webkit-fill-available;
 }
 .cart .cart-items {
   display: flex;

@@ -22,7 +22,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .product .product-details {
@@ -30,13 +30,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
 }
 
 .product .product-details .product-name {
   font-size: 1.6rem;
   font-weight: 600;
   text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 1rem;
 }
 .product .product-details .price {
   font-size: 2.1rem;
@@ -52,6 +55,11 @@
 .product .product-details .btn-div {
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+.product .cart-Btn {
+  padding: 0.3rem;
+  border: 2px solid #929292;
+  border-radius: 0.3rem;
 }
 
 .product .product-details div div {

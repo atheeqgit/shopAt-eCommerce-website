@@ -7,41 +7,67 @@ import Context from "./context.js";
 function App() {
   const [cartData, setCartData] = useState([]);
 
-  const addToCart = (data) => {
+  const addToCart = (data, quantity, setQuantity) => {
     const isProductExists = cartData.find((item) => item.id === data.id);
-    console.log(isProductExists);
+
     if (isProductExists) {
-      cartData.map((item) => {
-        if (item.id === data.id) {
-          setCartData([
-            {
+      setCartData(
+        cartData.map((item) => {
+          if (item.id === data.id) {
+            return {
               ...item,
-              quantity: item.quantity + 1,
-            },
-          ]);
-        }
-      });
+              quantity: +quantity,
+              // priceTot: +item.price * (Number(item.quantity) + +quantity),
+            };
+          } else {
+            return {
+              ...item,
+            };
+          }
+        })
+      );
     } else {
       setCartData([
         ...cartData,
         {
           id: data.id,
           title: data.title,
-          quantity: 1,
+          quantity: quantity,
           thumbnail: data.thumbnail,
-          price: data.price,
+          price: +data.price,
+          // priceTot: +data.price * quantity,
         },
       ]);
     }
   };
   const deleteFromCart = (data) => {
-    setCartData(
-      cartData.filter((item) => {
-        if (item.id !== data.id) {
-          return { ...item };
-        }
-      })
-    );
+    const isProductExists = cartData.find((item) => item.id === data.id);
+    if (isProductExists) {
+      if (data.quantity > 1) {
+        setCartData(
+          cartData.map((item) => {
+            if (item.id === data.id) {
+              return {
+                ...item,
+                quantity: Number(item.quantity) - 1,
+              };
+            } else {
+              return {
+                ...item,
+              };
+            }
+          })
+        );
+      } else {
+        setCartData(
+          cartData.filter((item) => {
+            if (item.id !== data.id) {
+              return { ...item };
+            }
+          })
+        );
+      }
+    }
   };
 
   return (
@@ -52,6 +78,8 @@ function App() {
           setCartData,
           cartData,
           deleteFromCart,
+          // setQuantity,
+          // quantity,
         }}
       >
         <Router>

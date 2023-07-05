@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-bottom: 3rem;
 }
 .shop .shop-main .shop-left {
   width: 20%;
@@ -67,7 +68,7 @@
   gap: 2rem;
 }
 .shop .shop-main .shop-right .shop-grid .product {
-  margin: 2rem 0;
+  margin: 0rem 0;
 }
 .shop .shop-main .shop-right .shop-grid .product-img {
   height: 20rem;

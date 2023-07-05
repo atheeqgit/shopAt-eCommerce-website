@@ -17,10 +17,14 @@ const Product = ({ data }) => {
     <div
       className="product"
       onClick={(e) => {
-        if (e.target.parentElement.className !== "cart-Btn") {
-          navigate(`/product/${data.id}`);
+        if (
+          e.target.className == "cart-Btn" ||
+          e.target.parentElement.className == "cart-Btn" ||
+          e.target.parentElement.parentElement.className == "cart-Btn"
+        ) {
+          addToCart(data, 1);
         } else {
-          addToCart(data);
+          navigate(`/product/${data.id}`);
         }
       }}
     >
@@ -31,15 +35,12 @@ const Product = ({ data }) => {
       <div className="product-details">
         <div>
           <p className="product-name">{data.title}</p>
-          <h2 className="price">{data.price}$</h2>
         </div>
         <div className="btn-div">
           <div className="cart-Btn">
             <HiOutlineShoppingCart size={25} />
           </div>
-          <div className="like-btn">
-            <AiOutlineHeart size={25} />
-          </div>
+          <h2 className="price">{data.price}$</h2>
         </div>
       </div>
     </div>

@@ -10,13 +10,8 @@ import { useContext } from "react";
 import Context from "../../context.js";
 
 const Selected = () => {
-  const {
-    addToCart,
-    deleteFromCart,
-
-    cartData,
-    setCartData,
-  } = useContext(Context);
+  const { addToCart, deleteFromCart, cartData, setCartData } =
+    useContext(Context);
   const [productExists, setProductExists] = useState();
   const [quantity, setQuantity] = useState(1);
 
@@ -53,51 +48,49 @@ const Selected = () => {
   }
   useEffect(() => {
     window.scrollTo(0, 0);
-
     singleItemData();
+    setQuantity(1);
+    cartExits();
   }, [itemId]);
 
   useEffect(() => {
-    handleE();
-  }, [quantity]);
+    cartExits();
+    console.log(productExists);
+    console.log(quantity);
 
-  function handleE() {
-    const cartProduct = cartData.find((item) => item.id === selectedData.id);
+    console.log(quantity);
+  }, [cartData]);
+
+  // useEffect(() => {
+  //   cartExits();
+
+  // }, [itemId]);
+
+  function cartExits() {
+    const cartProduct = cartData?.find((item) => item.id == +itemId);
     if (cartProduct) {
       setProductExists(cartProduct);
+    } else {
+      setQuantity(1);
+      setProductExists();
     }
   }
 
   function handleAdd() {
-    if (productExists) {
-      setQuantity(() => {
-        return Number(+productExists.quantity + 1);
-      });
-      addToCart(selectedData, setQuantity, quantity);
+    cartExits();
+    if (cartExits) {
+      addToCart(selectedData, quantity);
+      setQuantity(quantity + 1);
     } else {
-      setQuantity(() => {
-        return Number(quantity + 1);
-      });
+      setQuantity(quantity + 1);
+      addToCart(selectedData, quantity);
     }
   }
 
-  console.log(quantity);
   function handleDel() {
-    if (productExists) {
-      if (quantity > 1) {
-        setQuantity(() => {
-          return Number(+productExists.quantity - 1);
-        });
-        addToCart(selectedData, setQuantity, quantity);
-      } else {
-        setProductExists(false);
-        deleteFromCart(selectedData);
-      }
-    } else {
-      setQuantity(() => {
-        return Number(quantity - 1);
-      });
-    }
+    cartExits();
+    setQuantity(quantity - 1);
+    deleteFromCart(productExists);
   }
 
   return (
@@ -131,35 +124,43 @@ const Selected = () => {
             <h2>${selectedData.price}</h2>
 
             <div className="calc-div">
-              <div className="qunatity-div">
-                <div
-                  className="symbol"
-                  onClick={() => {
-                    handleAdd();
-                  }}
-                >
-                  +
+              {productExists ? (
+                <div className="qunatity-div">
+                  <div
+                    className="symbol"
+                    onClick={() => {
+                      handleAdd();
+                    }}
+                  >
+                    +
+                  </div>
+                  <div className="h3">
+                    {quantity - 1 == 0 ? 1 : quantity - 1}
+                  </div>
+                  <div
+                    className="symbol"
+                    onClick={() => {
+                      handleDel();
+                    }}
+                  >
+                    -
+                  </div>
                 </div>
-                <div className="h3">{quantity}</div>
-                <div
-                  className="symbol"
-                  onClick={() => {
-                    handleDel();
-                  }}
-                >
-                  -
-                </div>
-              </div>
+              ) : (
+                ""
+              )}
               <button
                 onClick={() => {
                   if (productExists) {
-                    handleDel();
+                    setQuantity(1);
+                    deleteFromCart(selectedData);
                   } else {
                     addToCart(selectedData, quantity);
+                    cartExits();
                   }
                 }}
               >
-                {productExists ? "delete from cart " : "add to cart"}{" "}
+                {productExists ? "delete from cart " : "add to cart"}
                 <HiOutlineShoppingCart size={30} />
               </button>
             </div>

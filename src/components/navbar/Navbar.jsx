@@ -17,9 +17,8 @@ import Context from "../../context.js";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { cartData } = useContext(Context);
+  const { cartData, cartOpen, setCartOpen } = useContext(Context);
   const [scrolled, setScrolled] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [input, setInput] = useState("");
   const [searchData, setSearchData] = useState();
@@ -32,6 +31,12 @@ const Navbar = () => {
       }
     }
   };
+
+  // useEffect(() => {
+  //   if (cartData.length == 0) {
+  //     setCartOpen(!cartOpen);
+  //   }
+  // }, [cartData]);
 
   useEffect(() => {
     window.onscroll = function () {

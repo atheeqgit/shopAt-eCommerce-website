@@ -141,6 +141,11 @@
     text-transform: capitalize;
     font-weight: 600;
   }
+  .selected .selected-right .calc-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 @media screen and (max-width: 840px) {
   .selected-product {

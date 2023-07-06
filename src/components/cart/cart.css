@@ -30,7 +30,6 @@
 .cart .cart-items {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   gap: 1rem;
   margin: 1rem 0;
@@ -53,8 +52,8 @@
   height: 100%;
 }
 .cart .cart-items .cart-item img {
-  width: 100%;
-  height: 100%;
+  width: 10rem;
+  height: 10rem;
   border-radius: 0.8rem;
 }
 .cart .cart-items .cart-item h2 {

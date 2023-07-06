@@ -9,7 +9,6 @@ import Context from "../../context.js";
 const Cart = ({ cartopen, setCartopen }) => {
   //--
   const { cartData, deleteFromCart } = useContext(Context);
-
   const [total, setTotal] = useState(0);
 
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Cart = ({ cartopen, setCartopen }) => {
   useEffect(() => {
     setTotal(
       cartData.reduce((prevValue, item) => {
-        return prevValue + item.price * item.quantity;
+        return prevValue + item.price * +item.quantity;
       }, 0)
     );
   }, [cartData]);

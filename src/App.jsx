@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Home, Footer, Shop, Selected } from "./components/index";
 import "./App.css";
@@ -6,6 +6,7 @@ import Context from "./context.js";
 
 function App() {
   const [cartData, setCartData] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const addToCart = (data, quantity, setQuantity) => {
     const isProductExists = cartData.find((item) => item.id === data.id);
@@ -78,6 +79,8 @@ function App() {
           setCartData,
           cartData,
           deleteFromCart,
+          cartOpen,
+          setCartOpen,
           // setQuantity,
           // quantity,
         }}

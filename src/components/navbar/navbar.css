@@ -104,6 +104,11 @@ nav .nav-fields .cart-Btn:hover {
   background-color: rgb(255, 100, 100);
 }
 
+.search-div h3 {
+  color: grey;
+  text-align: center;
+  font-weight: 600;
+}
 .search-div {
   width: 100%;
   left: 0;
@@ -222,5 +227,17 @@ nav .nav-fields .cart-Btn:hover {
   nav .links {
     width: 75%;
     height: 90vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .search-cont {
+    width: 8rem;
+    height: 8rem;
   }
 }

@@ -24,10 +24,7 @@ const Shop = () => {
     } else {
       Axios.get(`https://dummyjson.com/products/category/${value}`).then(
         (response) => {
-          console.log(response);
-
           if (response.status === 200) {
-            console.log(category);
             setShopData(response.data.products);
           } else console.log(response);
         }
@@ -86,19 +83,21 @@ const Shop = () => {
           </li>
           {categories
             ? categories.map((data, index) => {
-                return (
-                  <li
-                    key={index}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      FetchcategoryData(e.target.innerText);
-                      handleCats();
-                    }}
-                  >
-                    <a href="">{data}</a>
-                    <RxCaretRight size={20} />
-                  </li>
-                );
+                if (showCats) {
+                  return (
+                    <li
+                      key={index}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        FetchcategoryData(e.target.innerText);
+                        handleCats();
+                      }}
+                    >
+                      <a href="">{data}</a>
+                      <RxCaretRight size={20} />
+                    </li>
+                  );
+                }
               })
             : "loading....."}
         </ul>
@@ -109,8 +108,8 @@ const Shop = () => {
           </p>
           <div className="shop-grid">
             {shopData
-              ? shopData.map((data) => {
-                  return <Product data={data} />;
+              ? shopData.map((data, index) => {
+                  return <Product data={data} key={index} />;
                 })
               : "loading....."}
           </div>

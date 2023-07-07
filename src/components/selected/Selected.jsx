@@ -48,6 +48,9 @@ const Selected = () => {
   }
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
     singleItemData();
     setQuantity(1);
     cartExits();
@@ -55,10 +58,6 @@ const Selected = () => {
 
   useEffect(() => {
     cartExits();
-    console.log(productExists);
-    console.log(quantity);
-
-    console.log(quantity);
   }, [cartData]);
 
   // useEffect(() => {
@@ -129,10 +128,10 @@ const Selected = () => {
                   <div
                     className="symbol"
                     onClick={() => {
-                      handleAdd();
+                      handleDel();
                     }}
                   >
-                    +
+                    -
                   </div>
                   <div className="h3">
                     {quantity - 1 == 0 ? 1 : quantity - 1}
@@ -140,10 +139,10 @@ const Selected = () => {
                   <div
                     className="symbol"
                     onClick={() => {
-                      handleDel();
+                      handleAdd();
                     }}
                   >
-                    -
+                    +
                   </div>
                 </div>
               ) : (

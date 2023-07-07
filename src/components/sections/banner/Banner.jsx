@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { bannerData, BannerResponsive, brandData } from "../../../data/data";
 
 const Banner = () => {
+  //import { useNavigate } from "react-router-dom";
   const navigate = useNavigate();
 
   return (

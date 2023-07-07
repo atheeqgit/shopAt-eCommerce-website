@@ -43,7 +43,9 @@ body {
 .react-multiple-carousel__arrow {
   z-index: 99;
 }
-
+.react-multi-carousel-item {
+  margin-bottom: 1rem;
+}
 @media screen and (max-width: 840px) {
   .title {
     font-size: 2.6rem;

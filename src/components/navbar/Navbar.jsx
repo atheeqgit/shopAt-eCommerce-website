@@ -32,11 +32,7 @@ const Navbar = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (cartData.length == 0) {
-  //     setCartOpen(!cartOpen);
-  //   }
-  // }, [cartData]);
+  useEffect(() => {}, [cartData]);
 
   useEffect(() => {
     window.onscroll = function () {
@@ -125,9 +121,10 @@ const Navbar = () => {
       {input.length > 0 ? (
         <div className="search-div">
           {searchData.length > 0 ? (
-            searchData.map((data) => {
+            searchData.map((data, index) => {
               return (
                 <div
+                  key={index}
                   className="search-item"
                   onClick={() => {
                     navigate(`/product/${data.id}`);

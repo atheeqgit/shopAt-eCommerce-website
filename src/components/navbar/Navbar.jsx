@@ -55,6 +55,10 @@ const Navbar = () => {
   }
   useEffect(() => {
     if (input != "") {
+      if (cartOpen || toggleMenu) {
+        setCartOpen(false);
+        setToggleMenu(false);
+      }
       fetchSearchdata();
     } else {
       setSearchData([]);

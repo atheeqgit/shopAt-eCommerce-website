@@ -13,6 +13,7 @@
 .shop .shop-main .shop-left {
   width: 20%;
   height: 80vh;
+  padding-bottom: 1rem;
   overflow-y: scroll;
 }
 .shop .shop-main .shop-details {
@@ -88,6 +89,9 @@
 @media screen and (max-width: 1100px) {
   .shop .shop-main .shop-right .shop-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .selected .selected-left img {
+    width: 100%;
   }
 }
 @media screen and (max-width: 900px) {

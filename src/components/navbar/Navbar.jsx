@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { NavLink } from "react-router-dom";
 import Axios from "axios";
 import {
   RiMenu3Line,
@@ -71,9 +71,15 @@ const Navbar = () => {
       <div className="logo">ShopAt.com</div>
       <ul className={toggleMenu ? "links show-nav" : "links"}>
         <li className="link">
-          <Link to="/" onClick={handleClick}>
+          <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "Nav-active" : ""
+            }
+            onClick={handleClick}
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li className="link">
           <a href="#featured" onClick={handleClick}>
@@ -81,9 +87,15 @@ const Navbar = () => {
           </a>
         </li>
         <li className="link">
-          <Link to="/shop" onClick={handleClick}>
-            Shop
-          </Link>
+          <NavLink
+            to="/shop"
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "Nav-active" : ""
+            }
+            onClick={handleClick}
+          >
+            shop
+          </NavLink>
         </li>
       </ul>
       <div className="nav-fields">

@@ -72,6 +72,9 @@ nav .nav-fields form input {
 nav .menu-icons {
   display: none;
 }
+nav .Nav-active {
+  border-bottom: 2px solid rgb(90, 90, 90);
+}
 nav .nav-fields .cart-Btn {
   position: relative;
   height: 4rem;
@@ -137,7 +140,7 @@ nav .nav-fields .cart-Btn:hover {
   border: 1px solid var(--vlight-font);
 }
 .search-cont {
-  width: 10rem;
+  width: 40%;
   height: 10rem;
   border-radius: 0.8rem;
 }
@@ -152,6 +155,11 @@ nav .nav-fields .cart-Btn:hover {
   margin-bottom: 0.2rem;
   text-transform: capitalize;
   color: var(--dark-font);
+}
+
+.search-details {
+  text-align: center;
+  width: 60%;
 }
 .search-item h3 {
   font-size: 1.6rem;
@@ -204,8 +212,11 @@ nav .nav-fields .cart-Btn:hover {
 }
 @media screen and (max-width: 650px) {
   .search-cont {
-    width: 10rem;
+    width: 50%;
     height: 10rem;
+  }
+  .search-details {
+    width: 70%;
   }
   .search-div {
     grid-template-columns: repeat(2, 1fr);

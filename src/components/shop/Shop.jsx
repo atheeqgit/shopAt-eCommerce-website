@@ -83,7 +83,21 @@ const Shop = () => {
           </li>
           {categories
             ? categories.map((data, index) => {
-                if (showCats) {
+                if (window.innerWidth < 900 && showCats) {
+                  return (
+                    <li
+                      key={index}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        FetchcategoryData(e.target.innerText);
+                        handleCats();
+                      }}
+                    >
+                      <a href="">{data}</a>
+                      <RxCaretRight size={20} />
+                    </li>
+                  );
+                } else if (showCats) {
                   return (
                     <li
                       key={index}

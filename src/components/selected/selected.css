@@ -4,14 +4,16 @@
 .selected {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 3rem;
   margin: 1rem 4rem;
 }
 .selected .selected-left {
   width: 50%;
 }
+.selected .selected-left .img-div {
+  width: 100%;
+}
 .selected .selected-left img {
-  width: 95%;
   max-height: 40rem;
   display: block;
   margin: auto;
@@ -115,14 +117,8 @@
   .selected .selected-right h1 {
     font-size: 3.2rem;
   }
-  .selected .selected-left img {
-    width: 90%;
-  }
 }
 @media screen and (max-width: 600px) {
-  .selected .selected-left img {
-    width: 80%;
-  }
   .selected {
     flex-direction: column;
     align-items: center;
